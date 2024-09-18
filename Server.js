@@ -15,11 +15,11 @@ app.use(cors({
     origin:[process.env.FRONTEND_URL],
     methods:["GET","POST","PUT","DELETE"],
     credentials:true
-}))
+}));
 
 config({
     path:'./data/config.env'
-})
+});
 
 mongoose.connect(process.env.MONGO_URL,{dbName: "MERN_2024"}).then(()=>console.log("MONGOODB is Connected"));
 //const port = 4000;
