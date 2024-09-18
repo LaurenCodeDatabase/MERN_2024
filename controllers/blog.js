@@ -62,3 +62,19 @@ export const deleteBlog = async(req, res) =>{
         message: "Blog deleted success"
     })
 }
+
+export const getAllBlogs = async(req,res)=>{
+
+    const blogs = await Blog.find();
+
+    if(!blogs) return res.status(400).json({
+        success: false,
+        message: "Blogs not available"
+    })
+
+    res.status(200).json({
+        success:true,
+        message:"all blogs are",
+        blogs
+    })
+}
