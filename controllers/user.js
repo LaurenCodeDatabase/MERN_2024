@@ -1,5 +1,5 @@
 import { User } from "../Model/newusers.js";
-import bcrypt from "bcrypt";
+// import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
 import {generateCookie} from '../ulits/feature.js'
 
@@ -14,12 +14,12 @@ export const userRegister =  async (req, res) => {
         message: "User already exist..."
     })
 
-    const hashPassword = await bcrypt.hash(password, 10);
+    // const hashPassword = await bcrypt.hash(password, 10);
 
     user = await User.create({
         name,
         email,
-        password: hashPassword
+        password: password
     })
 
     generateCookie(user, res,201,"User register Success");
@@ -57,12 +57,12 @@ export const userLogin = async (req, res) => {
     })
 
     //const hashPassword = await bcrypt.hash(password,10);
-    const isMatch = await bcrypt.compare(password, user.password);
+    // const isMatch = await bcrypt.compare(password, user.password);
 
-    if (!isMatch) return res.status(400).json({
-        success: false,
-        message: "Password is incorrect"
-    })
+    // if (!isMatch) return res.status(400).json({
+    //     success: false,
+    //     message: "Password is incorrect"
+    // })
 
     generateCookie(user, res,201,`User Login Success${user.name}`);
     // const user = await(User.create({
