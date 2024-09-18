@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+//import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
 import router from "./routes/user.js";
 import cookieParser from "cookie-parser";
