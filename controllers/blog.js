@@ -78,3 +78,20 @@ export const getAllBlogs = async(req,res)=>{
         blogs
     })
 }
+
+export const getBlogbyId = async(req,res) =>{
+    const id = req.params.id;
+
+    const blog = await Blog.findById(id);
+    if(!blog) return res.status(400).json({
+        success: false,
+        message:"Invalid ID"
+    })
+    
+
+    res.status(200).json({
+        success: true,
+        message: "your Blog",
+        blog
+    })
+}

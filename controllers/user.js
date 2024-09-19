@@ -91,3 +91,20 @@ export const getMyProfile = (req,res) =>{
         UserName: req.user.name
     })
 }
+
+export const userById = async(req,res) =>{
+    const id = req.params.id;
+
+    const user = await User.findById(id);
+    if(!user) return res.status(400).json({
+        success: false,
+        message:"Invalid ID"
+    })
+    
+
+    res.status(200).json({
+        success: true,
+        message: "user is",
+        user
+    })
+}
