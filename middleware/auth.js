@@ -8,7 +8,7 @@ export const isAuthenticated = async(req,res,next) => {
         message: "Please Login..!"
     })
 
-    const decode = jwt.verify(token, process.env.JWT_SECRET);
+    const decode = jwt.verify(token, '@$#%$%@$()');
     //console.log("decoded Data", decode);
     req.user = await User.findById(decode._id);
     //console.log(req.user);
