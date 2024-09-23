@@ -88,7 +88,7 @@ export const userLogout = (req, res) => {
 export const getMyProfile = (req,res) =>{
     res.status(200).json({
         success:true,
-        UserName: req.user.name
+        UserName: req.user
     })
 }
 
